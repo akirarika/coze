@@ -1,0 +1,32 @@
+{
+  "name": "node-coze",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/node-coze.umd.cjs",
+  "module": "./dist/node-coze.js",
+  "typings": "./dist/node-coze.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/node-coze.js",
+      "require": "./dist/node-coze.umd.cjs",
+      "types": "./dist/node-coze.d.ts"
+    }
+  },
+  "files": [
+    "/dist",
+    "/LICENSE",
+    "/README.md"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "p": "tsc && vite build && npm publish"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8",
+    "vite-plugin-dts": "^3.7.2"
+  }
+}
