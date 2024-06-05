@@ -1,4 +1,5 @@
 export type CozeOptions = {
+  baseUrl?: string;
   accessToken: string;
 }
 
@@ -45,10 +46,12 @@ const PUBLIC_HEADER = {
 }
 
 export const createCoze = (cozeOptions: CozeOptions) => {
+  if (!cozeOptions.baseUrl) cozeOptions.baseUrl = "https://api.coze.cn";
+
   const coze = {
     async chat(options: CozeChatOptions): Promise<CozeChatResult> {
       try {
-        const response = await fetch("https://api.coze.cn/open_api/v2/chat", {
+        const response = await fetch(`${cozeOptions.baseUrl}/open_api/v2/chat`, {
           "method": "POST",
           headers: {
             ...PUBLIC_HEADER,
